@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VELORA — Premium Everyday Objects</title>
+<meta name="description" content="VELORA — a fictional premium ecommerce store demo for modern everyday objects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#171714;--paper:#f4f1e9;--cream:#ebe6da;--muted:#77756e;--line:#d7d2c7;--accent:#bf5638;--white:#fff;--dark:#20201c}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:"Manrope",sans-serif;color:var(--ink);background:var(--paper);overflow-x:hidden}a{text-decoration:none;color:inherit}button{font:inherit;border:0;background:none;cursor:pointer}img{width:100%;height:100%;object-fit:cover;display:block}::selection{background:var(--accent);color:#fff}
+.topbar{height:34px;background:var(--ink);color:#eee9df;display:flex;align-items:center;justify-content:center;font-size:9px;letter-spacing:.2em;text-transform:uppercase}
+.nav{height:78px;padding:0 5vw;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;border-bottom:1px solid var(--line);position:relative;z-index:10;background:var(--paper)}
+.logo{font-size:24px;font-weight:800;letter-spacing:-.08em}.logo i{font-family:"Playfair Display",serif;font-weight:600;color:var(--accent)}
+.navlinks{display:flex;gap:28px;font-size:10px;letter-spacing:.13em;text-transform:uppercase}.navlinks a:hover{color:var(--accent)}
+.navright{display:flex;justify-content:flex-end;gap:20px;align-items:center;font-size:10px;text-transform:uppercase;letter-spacing:.12em}.cart{position:relative}.count{position:absolute;top:-8px;right:-12px;background:var(--accent);color:#fff;width:16px;height:16px;border-radius:50%;display:grid;place-items:center;font-size:8px}.hamb{display:none}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:720px}.hero-copy{padding:90px 7vw;display:flex;flex-direction:column;justify-content:center}.eyebrow{font-size:9px;letter-spacing:.23em;text-transform:uppercase;color:var(--accent);margin-bottom:28px}.hero h1{font-size:clamp(60px,8vw,125px);line-height:.83;letter-spacing:-.09em;font-weight:600}.hero h1 em{font-family:"Playfair Display",serif;font-weight:600}.hero p{max-width:390px;color:#6f6c64;font-size:13px;line-height:1.8;margin-top:35px}.hero-actions{display:flex;gap:12px;margin-top:34px}.btn{padding:15px 22px;background:var(--ink);color:#fff;font-size:9px;letter-spacing:.16em;text-transform:uppercase}.btn.alt{background:transparent;color:var(--ink);border:1px solid var(--ink)}.btn:hover{background:var(--accent);border-color:var(--accent)}.hero-image{position:relative;min-height:600px}.hero-image img{filter:saturate(.85)}.hero-badge{position:absolute;bottom:28px;left:28px;background:var(--paper);padding:17px 20px;font-size:9px;text-transform:uppercase;letter-spacing:.16em}.hero-badge b{display:block;font-size:14px;letter-spacing:-.03em;margin-top:5px}
+.strip{display:flex;border-block:1px solid var(--line);overflow:hidden;white-space:nowrap}.strip span{padding:18px 35px;font-size:9px;text-transform:uppercase;letter-spacing:.22em;color:#66635c}
+.section{padding:105px 5vw}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:48px}.section-head h2{font-size:clamp(44px,6vw,82px);line-height:.88;letter-spacing:-.075em}.section-head h2 em{font-family:"Playfair Display",serif}.section-head p{font-size:11px;color:var(--muted);line-height:1.7;max-width:280px}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.product-card{position:relative}.product-image{height:390px;background:#e8e2d6;overflow:hidden;position:relative}.product-image img{transition:transform .7s}.product-card:hover img{transform:scale(1.05)}.badge{position:absolute;top:12px;left:12px;background:var(--ink);color:#fff;padding:7px 9px;font-size:8px;text-transform:uppercase;letter-spacing:.14em;z-index:2}.quick{position:absolute;bottom:12px;left:12px;right:12px;padding:12px;background:#fffef7e8;text-align:center;font-size:9px;text-transform:uppercase;letter-spacing:.15em;transform:translateY(65px);transition:.35s}.product-card:hover .quick{transform:none}.product-info{padding:15px 1px}.product-info h3{font-size:15px;font-weight:600;letter-spacing:-.025em}.product-info p{font-size:10px;color:#858178;margin-top:6px}.price{font-size:12px!important;color:var(--ink)!important;font-weight:600;margin-top:10px!important}.old{text-decoration:line-through;color:#aaa;margin-left:6px;font-weight:400}
+.category{display:grid;grid-template-columns:1fr 1fr;gap:18px}.category-card{height:560px;position:relative;overflow:hidden}.category-card img{transition:transform .8s}.category-card:hover img{transform:scale(1.05)}.category-card:after{content:"";position:absolute;inset:40% 0 0;background:linear-gradient(transparent,#000b)}.category-copy{position:absolute;z-index:2;left:28px;right:28px;bottom:27px;color:#fff;display:flex;justify-content:space-between;align-items:end}.category-copy h3{font-size:34px;letter-spacing:-.06em}.category-copy p{font-size:9px;text-transform:uppercase;letter-spacing:.15em;color:#ddd}
+.editorial{background:var(--dark);color:#f5f1e8;display:grid;grid-template-columns:.8fr 1.2fr;min-height:700px}.editorial-copy{padding:100px 8vw;display:flex;flex-direction:column;justify-content:center}.editorial-copy .eyebrow{color:#d6a998}.editorial-copy h2{font-size:clamp(50px,6.5vw,95px);line-height:.87;letter-spacing:-.08em}.editorial-copy h2 em{font-family:"Playfair Display",serif}.editorial-copy p{color:#aaa69d;font-size:12px;line-height:1.8;max-width:370px;margin-top:28px}.editorial-image{min-height:700px}.editorial-image img{filter:saturate(.75)}
+.features{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--line)}.feature{padding:45px 28px;border-right:1px solid var(--line)}.feature:last-child{border:0}.feature .icon{font-size:25px;color:var(--accent);margin-bottom:22px}.feature h3{font-size:14px;margin-bottom:10px}.feature p{font-size:10px;color:var(--muted);line-height:1.7}
+.banner{padding:110px 5vw;text-align:center}.banner h2{font-size:clamp(45px,7vw,100px);line-height:.86;letter-spacing:-.08em}.banner h2 em{font-family:"Playfair Display",serif}.banner p{max-width:450px;margin:25px auto 0;color:var(--muted);font-size:11px;line-height:1.8}
+.newsletter{background:#ddd8cc;display:grid;grid-template-columns:1fr 1fr;gap:70px;padding:80px 8vw}.newsletter h2{font-size:42px;line-height:.95;letter-spacing:-.06em}.newsletter p{font-size:11px;color:#716e67;line-height:1.7;margin-top:15px}.form{display:flex;border-bottom:1px solid var(--ink);align-self:center}.form input{border:0;background:none;outline:0;padding:14px 0;flex:1;font:inherit;font-size:11px}.form button{padding:14px 0;font-size:9px;text-transform:uppercase;letter-spacing:.15em}
+footer{background:var(--ink);color:#e9e4d9;padding:70px 5vw 25px}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:50px;padding-bottom:60px}.footer-logo{font-size:30px;font-weight:800;letter-spacing:-.08em}.footer-logo i{font-family:"Playfair Display",serif;color:#d69a88}.footer p{color:#8e8b84;font-size:10px;line-height:1.8;max-width:300px;margin-top:16px}.footer h4{font-size:9px;text-transform:uppercase;letter-spacing:.18em;margin-bottom:20px;color:#99958c}.footer a{display:block;font-size:10px;color:#aaa69e;margin:10px 0}.footer a:hover{color:#fff}.copyright{border-top:1px solid #353530;padding-top:20px;display:flex;justify-content:space-between;color:#66635d;font-size:8px;text-transform:uppercase;letter-spacing:.15em}
+.cart-panel{position:fixed;right:-420px;top:0;width:390px;max-width:100%;height:100vh;background:#f5f1e8;z-index:100;padding:30px;box-shadow:-10px 0 40px #0002;transition:.45s;display:flex;flex-direction:column}.cart-panel.open{right:0}.cart-top{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:20px}.cart-top h3{font-size:18px}.close{font-size:20px}.cart-items{flex:1;padding:20px 0;color:var(--muted);font-size:11px}.cart-empty{text-align:center;margin-top:100px}.cart-total{border-top:1px solid var(--line);padding-top:20px}.total-line{display:flex;justify-content:space-between;font-size:13px;margin-bottom:18px}.checkout{width:100%;padding:16px;background:var(--ink);color:#fff;text-transform:uppercase;letter-spacing:.15em;font-size:9px}
+@media(max-width:900px){.nav{grid-template-columns:1fr auto;height:68px}.navlinks{display:none}.navright .search{display:none}.hamb{display:block;margin-right:12px}.hero{grid-template-columns:1fr}.hero-copy{padding:80px 7vw}.hero-image{min-height:520px}.products{grid-template-columns:repeat(2,1fr)}.product-image{height:330px}.category{grid-template-columns:1fr}.category-card{height:480px}.editorial{grid-template-columns:1fr}.editorial-copy{padding:80px 7vw}.editorial-image{min-height:500px}.features{grid-template-columns:1fr 1fr}.feature:nth-child(2){border-right:0}.feature:nth-child(3){border-top:1px solid var(--line)}.newsletter{grid-template-columns:1fr;gap:35px}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.topbar{font-size:7px}.nav{padding:0 5vw}.logo{font-size:21px}.navright{gap:10px}.hero h1{font-size:70px}.hero-image{min-height:440px}.section{padding:75px 5vw}.section-head{display:block}.section-head p{margin-top:20px}.products{grid-template-columns:1fr 1fr;gap:12px}.product-image{height:245px}.quick{display:none}.category-card{height:390px}.category-copy h3{font-size:26px}.features{grid-template-columns:1fr}.feature{border-right:0!important;border-bottom:1px solid var(--line)}.feature:last-child{border-bottom:0}.footer-grid{grid-template-columns:1fr}.copyright{flex-direction:column;gap:10px}}
+</style>
+</head>
+<body>
+
+<div class="topbar">Free shipping on orders over ₹2,500 · Fictional ecommerce demo</div>
+
+<nav class="nav">
+<div><a class="logo" href="#">VEL<i>O</i>RA</a></div>
+<div class="navlinks"><a href="#shop">Shop</a><a href="#collections">Collections</a><a href="#journal">Journal</a><a href="#about">About</a></div>
+<div class="navright"><span class="search">Search</span><button class="cart" id="openCart">Bag <span class="count" id="count">0</span></button><button class="hamb">Menu</button></div>
+</nav>
+
+<header class="hero">
+<div class="hero-copy">
+<div class="eyebrow">The everyday, elevated</div>
+<h1>Objects<br>with <em>character.</em></h1>
+<p>Thoughtfully designed essentials for people who notice the little things. A fictional premium ecommerce brand built for demonstration.</p>
+<div class="hero-actions"><a href="#shop" class="btn">Shop the collection</a><a href="#collections" class="btn alt">Explore</a></div>
+</div>
+<div class="hero-image"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1500&q=85" alt="Modern workspace"><div class="hero-badge">New collection<b>Volume 04 · 2026</b></div></div>
+</header>
+
+<div class="strip"><span>Designed in small batches</span><span>Free shipping over ₹2,500</span><span>30 day returns</span><span>Made for daily rituals</span><span>Designed in small batches</span></div>
+
+<section class="section" id="shop">
+<div class="section-head"><h2>Best<br><em>sellers.</em></h2><p>The pieces customers keep reaching for. Replace these fictional products, prices and imagery with your real catalogue.</p></div>
+<div class="products">
+<article class="product-card"><div class="product-image"><span class="badge">Best seller</span><img src="https://images.unsplash.com/photo-1519947486511-46149fa0a254?auto=format&fit=crop&w=900&q=85" alt="Minimal watch"><button class="quick" data-product="Arc Watch">Quick add</button></div><div class="product-info"><h3>Arc Watch</h3><p>Brushed steel · Sand dial</p><p class="price">₹8,900</p></div></article>
+<article class="product-card"><div class="product-image"><span class="badge">New</span><img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=900&q=85" alt="Leather bag"><button class="quick" data-product="Fold Carryall">Quick add</button></div><div class="product-info"><h3>Fold Carryall</h3><p>Vegetable-tanned leather</p><p class="price">₹6,400</p></div></article>
+<article class="product-card"><div class="product-image"><img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=900&q=85" alt="Ceramic cup"><button class="quick" data-product="Form Cup Set">Quick add</button></div><div class="product-info"><h3>Form Cup Set</h3><p>Hand-finished ceramic · Set of 2</p><p class="price">₹1,850</p></div></article>
+<article class="product-card"><div class="product-image"><span class="badge">Limited</span><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85" alt="Sneaker"><button class="quick" data-product="Mono Runner">Quick add</button></div><div class="product-info"><h3>Mono Runner</h3><p>Everyday trainer · Chalk</p><p class="price">₹5,900 <span class="old">₹6,900</span></p></div></article>
+</div>
+</section>
+
+<section class="section" id="collections">
+<div class="section-head"><h2>Shop by<br><em>mood.</em></h2><p>Build category-led shopping sections that make discovery effortless and visually memorable.</p></div>
+<div class="category">
+<a class="category-card" href="#shop"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1500&q=85" alt="Objects collection"><div class="category-copy"><div><h3>Objects</h3><p>Tools for daily rituals</p></div><span>↗</span></div></a>
+<a class="category-card" href="#shop"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1500&q=85" alt="Wear collection"><div class="category-copy"><div><h3>Wear</h3><p>Quiet essentials</p></div><span>↗</span></div></a>
+</div>
+</section>
+
+<section class="editorial" id="journal">
+<div class="editorial-copy"><div class="eyebrow">The Velora Journal</div><h2>The art of<br>the <em>ordinary.</em></h2><p>A brand story section for editorial content, product philosophy and lifestyle storytelling. Good ecommerce doesn't only sell products — it creates a world around them.</p><a href="#about" class="btn" style="width:max-content;margin-top:30px">Read the story ↗</a></div>
+<div class="editorial-image"><img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=1500&q=85" alt="Minimal desk and objects"></div>
+</section>
+
+<section class="section" id="about" style="padding-bottom:65px">
+<div class="section-head"><h2>Why<br><em>Velora?</em></h2><p>Premium ecommerce details that help turn a product catalogue into a brand experience.</p></div>
+</section>
+<div class="features">
+<div class="feature"><div class="icon">✦</div><h3>Thoughtful design</h3><p>Products designed around proportion, material and everyday use — never decoration for decoration's sake.</p></div>
+<div class="feature"><div class="icon">↗</div><h3>Small-batch mindset</h3><p>A fictional brand position that creates scarcity, quality and a stronger reason to buy.</p></div>
+<div class="feature"><div class="icon">◌</div><h3>30-day returns</h3><p>A clear reassurance block that reduces purchase friction and builds customer confidence.</p></div>
+<div class="feature"><div class="icon">⌁</div><h3>Conscious delivery</h3><p>Simple packaging, considered fulfilment and communication from checkout to doorstep.</p></div>
+</div>
+
+<section class="banner"><h2>Good things<br>should feel <em>good.</em></h2><p>A high-impact brand statement section for an ecommerce homepage. Keep it emotional, concise and visual.</p></section>
+
+<section class="newsletter">
+<div><h2>Letters worth<br>opening.</h2><p>New releases, studio notes and occasional offers. No noise.</p></div>
+<form class="form" onsubmit="event.preventDefault();this.querySelector('input').value='Thank you — you are on the list.'"><input type="email" placeholder="Your email address" required><button>Subscribe ↗</button></form>
+</section>
+
+<footer>
+<div class="footer-grid">
+<div><div class="footer-logo">VEL<i>O</i>RA</div><p>Fictional premium ecommerce brand demo. Replace the brand identity, catalogue, imagery, prices and policies before publishing.</p></div>
+<div><h4>Shop</h4><a href="#shop">New arrivals</a><a href="#shop">Best sellers</a><a href="#collections">Collections</a><a href="#shop">Gift cards</a></div>
+<div><h4>About</h4><a href="#about">Our story</a><a href="#journal">Journal</a><a href="#about">Materials</a><a href="#about">Contact</a></div>
+<div><h4>Help</h4><a href="#about">Shipping</a><a href="#about">Returns</a><a href="#about">FAQ</a><a href="#about">Privacy</a></div>
+</div>
+<div class="copyright"><span>© 2026 Velora Demo</span><span>Fictional business · Sample content</span></div>
+</footer>
+
+<aside class="cart-panel" id="cartPanel">
+<div class="cart-top"><h3>Your bag</h3><button class="close" id="closeCart">×</button></div>
+<div class="cart-items" id="cartItems"><div class="cart-empty">Your bag is empty.<br><br>Add something you love.</div></div>
+<div class="cart-total"><div class="total-line"><span>Subtotal</span><b id="total">₹0</b></div><button class="checkout">Checkout</button></div>
+</aside>
+
+<script>
+let items=[];const panel=document.getElementById('cartPanel'),count=document.getElementById('count'),itemsEl=document.getElementById('cartItems'),total=document.getElementById('total');
+document.getElementById('openCart').onclick=()=>panel.classList.add('open');document.getElementById('closeCart').onclick=()=>panel.classList.remove('open');
+document.querySelectorAll('.quick').forEach(btn=>btn.onclick=()=>{items.push(btn.dataset.product);render();panel.classList.add('open')});
+function render(){count.textContent=items.length;if(!items.length){itemsEl.innerHTML='<div class="cart-empty">Your bag is empty.<br><br>Add something you love.</div>';total.textContent='₹0';return}itemsEl.innerHTML=items.map((x,i)=>`<div style="padding:14px 0;border-bottom:1px solid #d7d2c7;display:flex;justify-content:space-between"><span>${x}</span><button onclick="items.splice(${i},1);render()">×</button></div>`).join('');total.textContent='₹'+(items.length*2500).toLocaleString('en-IN')+'*';}
+</script>
+</body>
+</html>
